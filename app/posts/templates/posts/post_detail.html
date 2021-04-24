@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content_title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block content %}
+    <div class="tags">
+        {% for tag in tags %}
+            <a href="{{ url_for('posts.tag_detail', slug=tag.slug) }}" class="btn btn-outline-primary"
+               role="button" data-bs-toggle="button">{{ tag.name }}</a>
+        {% endfor %}
+    </div>
+    <div class="main_content">
+        {{ post.body }}
+    </div>
+
+{% endblock %}
